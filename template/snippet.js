@@ -23,21 +23,20 @@
 		}(method);
 	}
 
-
 	// Define a method to load Analytics.js from our CDN,
 	// and that will be sure to only ever load it once.
-	// rudderanalytics.load = function(options){
-	// // Create an async script element based on your key.
-	// var script = document.createElement('script');
-	// script.type = 'text/javascript';
-	// script.async = true;
-	// script.src = 'https://cdn.rudderlabs.com/v1/rudder-analytics.min.js';
+	rudderanalytics.load = function(options){
+		// // Create an async script element based on your key.
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.async = true;
+		script.src = 'https://cdn.rudderlabs.com/v1/rudder-analytics.min.js';
 
-	// // Insert our script next to the first script element.
-	// var first = document.getElementsByTagName('script')[0];
-	// first.parentNode.insertBefore(script, first);
-	// analytics._loadOptions = options;
-	//   };
+		// // Insert our script next to the first script element.
+		var first = document.getElementsByTagName('script')[0];
+		first.parentNode.insertBefore(script, first);
+		analytics._loadOptions = options;
+	};
 
 	// Load Analytics.js with your key, which will automatically
 	// load the tools you've enabled for your account. Boosh!
